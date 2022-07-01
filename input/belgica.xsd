@@ -1,0 +1,50 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:erasmus="http://www.erasmus.org" 
+    xmlns:be="http://www.belgica.org" elementFormDefault="qualified"
+    targetNamespace="http://www.belgica.org"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+    
+    <xsd:import namespace="http://www.erasmus.org" schemaLocation="erasmus.xsd"/>
+    
+    <xsd:element name="Candidate" type="be:BelgiumCandidateT"/>
+    
+    <xsd:complexType name="BelgiumCandidateT">
+        <xsd:complexContent>
+            <xsd:extension base="erasmus:CandidateT">
+                <xsd:sequence>
+                    <xsd:element name="address" type="be:AddressT" minOccurs="1"/>
+                    <xsd:element name="edHistory" type="be:edHistoryT" maxOccurs="unbounded"></xsd:element>
+                    <xsd:element name="programme" type="be:ProgrammeT" minOccurs="1" maxOccurs="1"></xsd:element>
+                </xsd:sequence>
+                <xsd:attribute name="SSnumber" type="xsd:int"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="AddressT">
+        <xsd:sequence>
+            <xsd:element name="City" type="xsd:string"></xsd:element>
+            <xsd:element name="Street" type="xsd:string"></xsd:element>
+            <xsd:element name="Number" type="xsd:int" maxOccurs="unbounded"></xsd:element>
+            <xsd:element name="Apartment" type="xsd:string"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="edHistoryT">
+        <xsd:sequence>
+            <xsd:element name="BeginningYear" type="xsd:int"></xsd:element>
+            <xsd:element name="FinishYear" type="xsd:int"></xsd:element>
+            <xsd:element name="StudyName" type="xsd:string"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="SchoolName" type="xsd:string"/>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="ProgrammeT">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Erasmus Study"/>
+            <xsd:enumeration value="Erasmus Tfg"/>
+            <xsd:enumeration value="Eramus Research"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+</xsd:schema>

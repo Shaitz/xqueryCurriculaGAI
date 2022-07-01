@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:erasmus="http://www.erasmus.org" 
+    xmlns:eresp="http://www.erasmusEsp.org" 
+    targetNamespace="http://www.erasmusEsp.org" 
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified" 
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
+    vc:minVersion="1.1">
+    
+    <xs:import namespace="http://www.erasmus.org" schemaLocation="erasmus.xsd"/>
+    
+    <xs:complexType name="alumnoConEstudios">
+        <xs:complexContent>
+            <xs:extension base="erasmus:CandidateT">
+                <xs:sequence>
+                    <xs:element ref="eresp:extras" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+                <xs:assert test="./erasmus:PassedCredits/text() &gt; 59"/>
+                <xs:assert test="starts-with(@ID, 'ESP')"/>
+                <xs:assert test=".//erasmus:DestinyUniversity/erasmus:Country/text() != 'ES'"/>
+                <xs:assert test="count(./erasmus:Subject[@Term = 1]) &lt; 6"/>
+                <xs:assert test="count(./erasmus:Subject[@Term = 2]) &lt; 6"/>
+                <xs:assert test="sum(./erasmus:Subject/Credits/text()) &lt; 61"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="extras" type="eresp:extrasT"></xs:element>
+    
+    <xs:complexType name="extrasT">
+        <xs:sequence>
+            <xs:element name="UniversidadPrevia" type="eresp:universidadEspania"></xs:element>
+            <xs:element name="Hobbies" type="eresp:HobbiesT" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="HobbiesT">
+        <xs:sequence>
+            <xs:element name="Hobby" type="xs:string"  minOccurs="0" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="universidadEspania">
+        <xs:complexContent>
+            <xs:extension base="erasmus:UniversityT">
+                <xs:sequence>
+                    <xs:element name="Province" type="eresp:ProvinciaT"/>
+                </xs:sequence>
+                <xs:assert test="contains(.//erasmus:Contact_email,'@')"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="ProvinciaT">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Andalucía"/>
+            <xs:enumeration value="Aragón"/>
+            <xs:enumeration value="Canarias"/>
+            <xs:enumeration value="Cantabria"/>
+            <xs:enumeration value="Castilla La Mancha"/>
+            <xs:enumeration value="Castilla y León"/>
+            <xs:enumeration value="Cataluña"/>
+            <xs:enumeration value="Madrid"/>
+            <xs:enumeration value="Navarra"/>
+            <xs:enumeration value="Valencia"/>
+            <xs:enumeration value="Extremadura"/>
+            <xs:enumeration value="Galicia"/>
+            <xs:enumeration value="Islas Baleares"/>
+            <xs:enumeration value="La Rioja"/>
+            <xs:enumeration value="País Vasco"/>
+            <xs:enumeration value="Asturias"/>
+            <xs:enumeration value="Murcia"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+</xs:schema>

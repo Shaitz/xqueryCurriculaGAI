@@ -1,0 +1,55 @@
+<?xml version="1.1"?>
+<Erasmus xmlns="http://www.erasmus.org" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:fra="http://www.francia.org"
+    xsi:schemaLocation="http://www.erasmus.org erasmus.xsd  http://www.francia.org francia.xsd">
+    
+    
+    <Candidate ID="cm" ValidFrom="2022-01-01" ValidTo="2023-12-31"  xsi:type="fra:GPaisCandidateT">
+        <Name>Chris</Name>
+        <Surname>Mandel</Surname>
+        <ContactInfo>
+            <Telephone>456723896</Telephone>
+            <Telephone>986231896</Telephone>
+            <Email>chrismandel@gmail.com</Email>
+            <Email>cmandel@student.co.uk</Email>
+        </ContactInfo>
+        <PassedCredits>150</PassedCredits>
+        <LanguageLevel Language="English">
+            <Level>C2</Level>
+        </LanguageLevel>
+        <LanguageLevel Language="French">
+            <Level>B2</Level>
+        </LanguageLevel>
+        <Subject Term="1">
+            <Name>Advanced Informatic Data Storage</Name>
+            <Credits>12</Credits>
+            <Tutor>Michelle Bach</Tutor>
+            <Speciality>Software</Speciality>
+        </Subject>
+        <Subject Term="1">
+            <Name>Web System Management</Name>
+            <Credits>12</Credits>
+            <Tutor>Francois Noir</Tutor>
+            <Speciality>Software</Speciality>
+        </Subject>
+        <Subject Term="1">
+            <Name>Graphic Interfaces and User Accessibility</Name>
+            <Credits>6</Credits>
+            <Tutor>Nichole Pierre</Tutor>
+            <Speciality>Software</Speciality>
+        </Subject>
+        <OriginUniversity>
+            <Name>Sherloch Holmes Univerity</Name>
+            <Contact_email>shuLondon@hotmail.co.uk</Contact_email>
+            <Country>EN</Country>
+        </OriginUniversity>
+        <DestinyUniversity>
+            <Name>Paris National Informatic University</Name>
+            <Contact_email>pniuParis@yahoo.fr</Contact_email>
+            <Country>FR</Country>
+        </DestinyUniversity>
+        <fra:Accomodation>Private residence</fra:Accomodation>
+    </Candidate>
+
+</Erasmus>

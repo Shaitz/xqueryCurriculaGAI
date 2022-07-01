@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:erasmus="http://www.erasmus.org" 
+xmlns:pais="http://www.francia.org" elementFormDefault="qualified" 
+xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1"
+targetNamespace="http://www.francia.org">
+
+<xsd:import namespace="http://www.erasmus.org" schemaLocation="erasmus.xsd"/>
+
+<xsd:complexType name="GPaisCandidateT">
+    <xsd:complexContent>
+        <xsd:extension base="erasmus:CandidateT">
+            <xsd:sequence>
+                <xsd:element name="Accomodation" type="pais:AccomodationT" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:assert 
+                test="
+                .//erasmus:Country = 'FR'
+                "/>
+            <xsd:assert 
+                test="
+                ./erasmus:PassedCredits &gt; 119
+                "/>
+            <xsd:assert
+                test="
+                if((count(./erasmus:Subject[@Term = 1]) &lt; 1) or (count(./erasmus:Subject[@Term = 2]) &lt; 1))
+                then
+                sum(.//erasmus:Credits) &gt; 29
+                else
+                sum(.//erasmus:Credits) = 60
+                "/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:simpleType name="AccomodationT">
+    <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="University's residence"/>
+        <xsd:enumeration value="Private residence"/>
+        <xsd:enumeration value="Private house"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

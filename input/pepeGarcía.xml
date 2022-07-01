@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Erasmus xmlns="http://www.erasmus.org" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:eresp="http://www.erasmusEsp.org"
+    xsi:schemaLocation="http://www.erasmus.org erasmus.xsd http://www.erasmusEsp.org espania.xsd">
+    
+<Candidate xsi:type="eresp:alumnoConEstudios" ID="ESP1" ValidFrom="2000-01-01" ValidTo="2000-02-02">
+    <Name>Pepe</Name>
+    <Surname>García</Surname>
+    <ContactInfo>
+        <Email>pepes@gmail.com</Email>
+    </ContactInfo>
+    <PassedCredits>60</PassedCredits>
+    <LanguageLevel Language="English">
+        <Level>B2</Level>
+    </LanguageLevel>
+    <Subject Term="1">
+        <Name>Economy</Name>
+        <Credits>6</Credits>
+        <Tutor>Laurent Laurent</Tutor>
+        <Speciality></Speciality>
+    </Subject>
+    <Subject Term="1">
+        <Name>Neural Networks</Name>
+        <Credits>6</Credits>
+        <Tutor>Pierre Thomas</Tutor>
+        <Speciality>Computer Science</Speciality>
+    </Subject>
+    <Subject Term="2">
+        <Name>Artificial Intelligence</Name>
+        <Credits>6</Credits>
+        <Tutor>Michael Petit</Tutor>
+        <Speciality>Computer Science</Speciality>
+    </Subject>
+    <Subject Term="2">
+        <Name>Big Data</Name>
+        <Credits>6</Credits>
+        <Tutor>Roux Durand</Tutor>
+        <Speciality>Computer Science</Speciality>
+    </Subject>
+    <OriginUniversity xsi:type="eresp:universidadEspania">
+        <Name>Universidad del País Vasco</Name>
+        <Contact_email>upv@ehu.es</Contact_email>
+        <Country>ES</Country>
+        <eresp:Province>País Vasco</eresp:Province>
+    </OriginUniversity>
+    <DestinyUniversity>
+        <Name>University of Paris</Name>
+        <Contact_email>uop@uop.fr</Contact_email>
+        <Country>FR</Country>
+    </DestinyUniversity>
+    <eresp:extras>
+        <eresp:UniversidadPrevia>
+            <Name>Universidad de Deusto</Name>
+            <Contact_email>deusto@deusto.com</Contact_email>
+            <Country>ES</Country>
+            <eresp:Province>País Vasco</eresp:Province>
+        </eresp:UniversidadPrevia>
+        <eresp:Hobbies>
+            <eresp:Hobby>Programar</eresp:Hobby>
+            <eresp:Hobby>Echar la siesta</eresp:Hobby>
+        </eresp:Hobbies>
+    </eresp:extras>
+</Candidate>
+</Erasmus>

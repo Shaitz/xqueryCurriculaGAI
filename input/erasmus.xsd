@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:erasmus="http://www.erasmus.org" 
+targetNamespace="http://www.erasmus.org" elementFormDefault="qualified" 
+xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+
+<xsd:element name="Erasmus" type="erasmus:ErasmusT"></xsd:element>
+
+<xsd:complexType name="ErasmusT">
+    <xsd:sequence>
+        <xsd:element ref="erasmus:Candidate" maxOccurs="unbounded"></xsd:element>
+    </xsd:sequence>
+</xsd:complexType>
+    
+<xsd:element name="Candidate" type="erasmus:CandidateT"/>
+
+<xsd:complexType name="CandidateT">
+    <xsd:sequence>
+        <xsd:element name="Name" type="xsd:string"></xsd:element>
+        <xsd:element name="Surname" type="xsd:string"></xsd:element>
+        <xsd:element name="ContactInfo" type="erasmus:ContactT"></xsd:element>
+        <xsd:element name="PassedCredits" type="xsd:int"></xsd:element>
+        <xsd:sequence>
+            <xsd:element ref="erasmus:LanguageLevel" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+        <xsd:sequence>
+            <xsd:element ref="erasmus:Subject" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+        <xsd:sequence>
+            <xsd:element ref="erasmus:OriginUniversity"></xsd:element>
+        </xsd:sequence>
+        <xsd:sequence>
+            <xsd:element ref="erasmus:DestinyUniversity"></xsd:element>
+        </xsd:sequence>
+    </xsd:sequence>
+    <xsd:attribute name="ID" type="xsd:ID" use="required"/>
+    <xsd:attribute name="ValidFrom" type="xsd:date" use="required"/>
+    <xsd:attribute name="ValidTo" type="xsd:date" use="required"/>
+
+    <xsd:assert test="@ValidFrom &lt; @ValidTo"/>
+</xsd:complexType>
+
+<xsd:element name="LanguageLevel" type="erasmus:LanguageLevelT"></xsd:element>
+
+<xsd:complexType name="LanguageLevelT">
+    <xsd:sequence>
+        <xsd:element name="Level" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="Language" type="xsd:string" use="required"></xsd:attribute>
+</xsd:complexType>
+
+<xsd:element name="Subject" type="erasmus:SubjectT"></xsd:element>
+
+<xsd:complexType name="SubjectT">
+    <xsd:sequence>
+        <xsd:element name="Name" type="xsd:string"></xsd:element>
+        <xsd:element name="Credits" type="xsd:int"></xsd:element>
+        <xsd:element name="Tutor" type="xsd:string" maxOccurs="unbounded"></xsd:element>
+        <xsd:element name="Speciality" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="Term" type="erasmus:TermT" use="required"/>
+</xsd:complexType>
+
+<xsd:element name="OriginUniversity" type="erasmus:UniversityT"></xsd:element>
+<xsd:element name="DestinyUniversity" type="erasmus:UniversityT"></xsd:element>
+
+<xsd:complexType name="UniversityT">
+    <xsd:sequence>
+        <xsd:element name="Name" type="xsd:string"></xsd:element>
+        <xsd:element name="Contact_email" type="xsd:string" maxOccurs="unbounded"></xsd:element>
+        <xsd:element name="Country" type="erasmus:CountryT"></xsd:element>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ContactT">
+    <xsd:sequence>
+        <xsd:element name="Telephone" type="erasmus:TelephoneT" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+        <xsd:element name="Email" type="xsd:string" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="TelephoneT">
+	<xsd:restriction base="xsd:string">
+        <xsd:pattern value="[0-9]{1,}"></xsd:pattern>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="CountryT">
+	<xsd:restriction base="xsd:string">
+        <xsd:pattern value="[A-Z]{2}"></xsd:pattern>
+	</xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="TermT">
+    <xsd:restriction base="xsd:integer">
+        <xsd:minInclusive value="1"/>
+        <xsd:maxInclusive value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

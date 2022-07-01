@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Erasmus xmlns="http://www.erasmus.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:be="http://www.belgica.org"
+    xsi:schemaLocation="http://www.belgica.org belgica.xsd http://www.erasmus.org erasmus.xsd" >
+    <Candidate ID="AlexBen" ValidFrom="2022-04-01" ValidTo="2023-06-30" xsi:type="be:BelgiumCandidateT">
+        <Name xmlns="http://www.erasmus.org">Alex</Name>
+        <Surname xmlns="http://www.erasmus.org">Ben</Surname>
+        <ContactInfo xmlns="http://www.erasmus.org">
+            <Telephone>661122334</Telephone>
+        </ContactInfo>
+        <PassedCredits xmlns="http://www.erasmus.org">180</PassedCredits>
+        <LanguageLevel xmlns="http://www.erasmus.org" Language="French">
+            <Level>Native</Level>
+        </LanguageLevel>
+        <LanguageLevel xmlns="http://www.erasmus.org" Language="English">
+            <Level>C1</Level>
+        </LanguageLevel>
+        <Subject xmlns="http://www.erasmus.org" Term="1">
+            <Name>Statictics</Name>
+            <Credits>6</Credits>
+            <Tutor>John Brandon</Tutor>
+            <Speciality>Software</Speciality>
+        </Subject>
+        <Subject xmlns="http://www.erasmus.org" Term="1">
+            <Name>Calculus</Name>
+            <Credits>6</Credits>
+            <Tutor>Viktoria Kaleva</Tutor>
+            <Speciality>Software</Speciality>
+        </Subject>
+        <Subject xmlns="http://www.erasmus.org" Term="1">
+            <Name>Information Management</Name>
+            <Credits>4</Credits>
+            <Tutor>Emma Cathar</Tutor>
+            <Speciality>Software</Speciality>
+        </Subject>
+        <OriginUniversity xmlns="http://www.erasmus.org">
+            <Name>UPV/EHU</Name>
+            <Contact_email>contact@ehu.eus</Contact_email>
+            <Country>ES</Country>
+        </OriginUniversity>
+        <DestinyUniversity xmlns="http://www.erasmus.org">
+            <Name>Ku Leuven</Name>
+            <Contact_email>contact@kuleuven.com</Contact_email>
+            <Country>BE</Country>
+        </DestinyUniversity>
+        <be:address>
+            <be:City>Leuven</be:City>
+            <be:Street>Naamsestrar</be:Street>
+            <be:Number>22</be:Number>
+            <be:Apartment>1F</be:Apartment>
+        </be:address>
+        <be:edHistory>
+            <be:BeginningYear>2003</be:BeginningYear>
+            <be:FinishYear>2013</be:FinishYear>
+            <be:StudyName>Elementary Studies</be:StudyName>
+        </be:edHistory>
+        <be:edHistory>
+            <be:BeginningYear>2013</be:BeginningYear>
+            <be:FinishYear>2019</be:FinishYear>
+            <be:StudyName>High School</be:StudyName>
+        </be:edHistory>
+        <be:programme>Erasmus Study</be:programme>
+    </Candidate>
+</Erasmus>
